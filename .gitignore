@@ -19,3 +19,4 @@ doc/doxygen/html/*
 *.png
 *.dat
 *.db
+*.swp
