@@ -24,6 +24,7 @@
 #include "../converters/pdf.h"
 #include "../converters/json.h"
 #include "../converters/csv.h"
+#include "../converters/raw.h"
 #include "../parsers/wpi.h"
 #include "../datatypes/element.h"
 #include "../high/conversion.h"
@@ -66,7 +67,8 @@ static const char* file_mimetypes[]  = {
   "image/png", 
   "image/svg+xml", 
   "application/json",
-  "text/csv"
+  "text/csv",
+  "application/octet-stream"
 };
 
 static const char* file_extensions[] = { 
@@ -74,7 +76,8 @@ static const char* file_extensions[] = {
   "PNG - Portable Network Graphics",
   "SVG - Scalable Vector Graphics",
   "JSON - JavaScript Object Notation",
-  "CSV - Comma separated values"
+  "CSV - Comma separated values",
+  "RAW - Raw Input as readable text",
 };
 
 typedef enum
@@ -467,7 +470,7 @@ gui_mainwindow_file_dialog (GtkWidget* parent, GtkFileChooserAction action)
 	{
 	  GtkFileFilter* filter = gtk_file_filter_new ();
 	  gtk_file_filter_set_name (filter, file_extensions[a]);
-	  gtk_file_filter_add_mime_type (filter, file_mimetypes[a]);
+    gtk_file_filter_add_mime_type (filter, file_mimetypes[a]);
 	  gtk_file_chooser_add_filter (GTK_FILE_CHOOSER (dialog), filter);
 	}
     }
@@ -686,6 +689,9 @@ gui_mainwindow_export_activated (GtkWidget* widget)
 
   else if (!strcmp (ext, ".csv"))
     co_csv_create_file (filename, parsed_data);
+
+  else if (!strcmp (ext, ".raw"))
+    co_raw_create_file (filename, parsed_data);
 
   else if (!strcmp (ext, ".svg"))
     high_export_to_file (parsed_data, NULL, filename, &settings);

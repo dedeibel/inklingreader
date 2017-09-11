@@ -12,6 +12,7 @@ inklingreader_SOURCES 	= src/main.c src/gui/mainwindow.c src/gui/mainwindow.h \
 			  src/converters/json.c src/converters/json.h \
 			  src/converters/pdf.c src/converters/pdf.h \
 			  src/converters/csv.c src/converters/csv.h \
+			  src/converters/raw.c src/converters/raw.h \
 			  src/parsers/wpi.c src/parsers/wpi.h \
 			  src/high/conversion.c src/high/conversion.h \
 			  src/datatypes/configuration.c src/datatypes/configuration.h \
