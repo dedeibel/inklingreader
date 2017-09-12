@@ -14,6 +14,13 @@ inklingreader_SOURCES 	= src/main.c src/gui/mainwindow.c src/gui/mainwindow.h \
 			  src/converters/csv.c src/converters/csv.h \
 			  src/converters/raw.c src/converters/raw.h \
 			  src/parsers/wpi.c src/parsers/wpi.h \
+			  src/processor/processor.c src/processor/processor.h \
+			  src/processor/enrich-coords.c src/processor/enrich-coords.h \
+			  src/processor/merge-clock-entries.c src/processor/merge-clock-entries.h \
+			  src/processor/remove-coords-without-stroke.c src/processor/remove-coords-without-stroke.h \
+			  src/processor/remove-duplicate-coords.c src/processor/remove-duplicate-coords.h \
+			  src/processor/remove-empty-strokes.c src/processor/remove-emptry-strokes.h \
+			  src/processor/remove-spike-coords.c src/processor/remove-spike-coords.h \
 			  src/high/conversion.c src/high/conversion.h \
 			  src/datatypes/configuration.c src/datatypes/configuration.h \
 			  src/optimizers/point-reduction.h src/optimizers/point-reduction.c \
