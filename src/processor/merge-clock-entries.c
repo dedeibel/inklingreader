@@ -20,11 +20,53 @@
 #include "merge-clock-entries.h"
 
 #include "../datatypes/element.h"
-#include "../datatypes/coordinate.h"
 #include "../datatypes/clock.h"
+
+#include <stdio.h>
+#include <stdlib.h>
+
+void merge_clock_entries(GSList** data, GSList** clock_list_entries, unsigned int* consecutive_clocks)
+{
+  if (*consecutive_clocks > 2) {
+
+    // Keep the first and the last clock entry
+    GSList* clock_list_it = (*clock_list_entries)->next;
+    while (clock_list_it != NULL)
+    {
+      if (--(*consecutive_clocks) > 1) {
+        *data = g_slist_delete_link(*data, clock_list_it->data);
+      }
+      clock_list_it = clock_list_it->next;
+    }
+  }
+
+  g_slist_free(*clock_list_entries);
+  *clock_list_entries = NULL;
+  *consecutive_clocks = 0;
+}
 
 GSList* pro_merge_clock_entries (GSList* data)
 {
-  GSList* head = data;
-  return head;
+  GSList* it = data;
+  unsigned int consecutive_clocks = 0;
+  GSList* clock_list_entries = NULL;
+
+  while (it != NULL)
+  {
+    dt_element* e = (dt_element *)it->data;
+    if (e->type == TYPE_CLOCK) {
+      consecutive_clocks++;
+      clock_list_entries = g_slist_append(clock_list_entries, it);
+    }
+    else {
+      merge_clock_entries(&data, &clock_list_entries, &consecutive_clocks);
+    }
+
+    it = it->next;
+  }
+
+  merge_clock_entries(&data, &clock_list_entries, &consecutive_clocks);
+
+  return data;
 }
+
