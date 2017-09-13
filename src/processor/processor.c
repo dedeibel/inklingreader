@@ -29,14 +29,23 @@
 #include "remove-empty-strokes.h"
 #include "enrich-coords.h"
 
-GSList* pro_process (GSList* data)
+#include <stdio.h>
+
+GSList* pro_process (GSList* input_head)
 {
-  GSList* head = data;
-  head = pro_merge_clock_entries(data);
-  head = pro_remove_coords_without_stroke(data);
-  head = pro_remove_duplicate_coords(data);
-  head = pro_remove_spike_coords(data);
-  head = pro_remove_empty_strokes(data);
-  head = pro_enrich_coords(data);
+  GSList* head = input_head;
+  printf("start                 count: %hd\n", g_slist_length(head));
+  head = pro_merge_clock_entries(head);
+  printf("merge clock           count: %hd\n", g_slist_length(head));
+  head = pro_remove_coords_without_stroke(head);
+  printf("rem coords wo stroke  count: %hd\n", g_slist_length(head));
+  head = pro_remove_duplicate_coords(head);
+  printf("rem duplicate coords  count: %hd\n", g_slist_length(head));
+  head = pro_remove_spike_coords(head);
+  printf("rem spike coords      count: %hd\n", g_slist_length(head));
+  head = pro_remove_empty_strokes(head);
+  printf("rem empty strokes     count: %hd\n", g_slist_length(head));
+  head = pro_enrich_coords(head);
+  printf("enrich coords         count: %hd\n", g_slist_length(head));
   return head;
 }
