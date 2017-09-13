@@ -46,6 +46,7 @@
 #include "converters/svg.h"
 #include "optimizers/point-reduction.h"
 #include "usb/online-mode.h"
+#include "processor/processor.h"
 
 /* This struct stores various run-time configuration options to allow 
  * customization of the behavior of the program. */
@@ -299,6 +300,7 @@ main (int argc, char** argv)
 		    else
 		      {
 			coordinates = p_wpi_parse (filename, &settings.process_until);
+      coordinates = pro_process(coordinates);
 			high_export_to_file (coordinates, NULL, optarg, &settings);
 		      }
 		  }
