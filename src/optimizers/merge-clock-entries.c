@@ -34,7 +34,9 @@ void merge_clock_entries(GSList** data, GSList** clock_list_entries, unsigned in
     while (clock_list_it != NULL)
     {
       if (--(*consecutive_clocks) > 1) {
-        *data = g_slist_delete_link(*data, clock_list_it->data);
+        GSList* link_to_be_removed = clock_list_it->data;
+        g_free(link_to_be_removed->data);
+        *data = g_slist_delete_link(*data, link_to_be_removed);
       }
       clock_list_it = clock_list_it->next;
     }
