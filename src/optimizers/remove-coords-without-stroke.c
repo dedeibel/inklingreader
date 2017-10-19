@@ -34,7 +34,9 @@ void delete_entries(GSList** data, GSList** coord_list_entries, unsigned int ins
     GSList* coord_list_it = *coord_list_entries;
     while (coord_list_it != NULL)
     {
-      *data = g_slist_delete_link(*data, coord_list_it->data);
+      GSList* link_to_be_removed = coord_list_it->data;
+      g_free(link_to_be_removed->data);
+      *data = g_slist_delete_link(*data, link_to_be_removed);
       coord_list_it = coord_list_it->next;
       removed++;
     }
