@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2017  Benjamin Peter <benjaminpeter@arcor.de>
- * 
+ *
  * This file is part of InklingReader
  *
  * This program is free software: you can redistribute it and/or modify
@@ -17,11 +17,14 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PROCESSOR_H
-#define PROCESSOR_H
+#include "enrich-coords.h"
 
-#include <glib.h>
+#include "../datatypes/element.h"
+#include "../datatypes/coordinate.h"
+#include "../datatypes/clock.h"
 
-GSList* pro_process (GSList* data);
-
-#endif//PROCESSOR_H
+GSList* opt_enrich_coords (GSList* data)
+{
+  GSList* head = data;
+  return head;
+}

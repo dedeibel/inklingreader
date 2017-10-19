@@ -45,7 +45,7 @@ void merge_clock_entries(GSList** data, GSList** clock_list_entries, unsigned in
   *consecutive_clocks = 0;
 }
 
-GSList* pro_merge_clock_entries (GSList* data)
+GSList* opt_merge_clock_entries (GSList* data)
 {
   GSList* it = data;
   unsigned int consecutive_clocks = 0;

@@ -17,11 +17,14 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef REMOVE_EMPTY_STROKES_H
-#define REMOVE_EMPTY_STROKES_H
+#include "remove-spike-coords.h"
 
-#include <glib.h>
+#include "../datatypes/element.h"
+#include "../datatypes/coordinate.h"
+#include "../datatypes/clock.h"
 
-GSList* pro_remove_empty_strokes (GSList* data);
-
-#endif//REMOVE_EMPTY_STROKES_H
+GSList* opt_remove_spike_coords (GSList* data)
+{
+  GSList* head = data;
+  return head;
+}

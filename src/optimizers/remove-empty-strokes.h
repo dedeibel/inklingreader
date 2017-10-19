@@ -17,11 +17,11 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef ENRICH_COORDS_H
-#define ENRICH_COORDS_H
+#ifndef REMOVE_EMPTY_STROKES_H
+#define REMOVE_EMPTY_STROKES_H
 
 #include <glib.h>
 
-GSList* pro_enrich_coords (GSList* data);
+GSList* opt_remove_empty_strokes (GSList* data);
 
-#endif//ENRICH_COORDS_H
+#endif//REMOVE_EMPTY_STROKES_H

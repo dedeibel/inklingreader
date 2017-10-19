@@ -17,11 +17,11 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef MERGE_CLOCK_ENTRIES_H
-#define MERGE_CLOCK_ENTRIES_H
+#ifndef REMOVE_SPIKE_COORDS_H
+#define REMOVE_SPIKE_COORDS_H
 
 #include <glib.h>
 
-GSList* pro_merge_clock_entries (GSList* data);
+GSList* opt_remove_spike_coords (GSList* data);
 
-#endif//MERGE_CLOCK_ENTRIES_H
+#endif//REMOVE_SPIKE_COORDS_H

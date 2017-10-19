@@ -17,7 +17,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "processor.h"
+#include "optimizer.h"
 
 #include "../datatypes/element.h"
 #include "../datatypes/clock.h"
@@ -31,21 +31,21 @@
 
 #include <stdio.h>
 
-GSList* pro_process (GSList* input_head)
+GSList* opt_optimize (GSList* input_head)
 {
   GSList* head = input_head;
   printf("start                 count: %hd\n", g_slist_length(head));
-  head = pro_merge_clock_entries(head);
+  head = opt_merge_clock_entries(head);
   printf("merge clock           count: %hd\n", g_slist_length(head));
-  head = pro_remove_coords_without_stroke(head);
+  head = opt_remove_coords_without_stroke(head);
   printf("rem coords wo stroke  count: %hd\n", g_slist_length(head));
-  head = pro_remove_duplicate_coords(head);
+  head = opt_remove_duplicate_coords(head);
   printf("rem duplicate coords  count: %hd\n", g_slist_length(head));
-  head = pro_remove_spike_coords(head);
+  head = opt_remove_spike_coords(head);
   printf("rem spike coords      count: %hd\n", g_slist_length(head));
-  head = pro_remove_empty_strokes(head);
+  head = opt_remove_empty_strokes(head);
   printf("rem empty strokes     count: %hd\n", g_slist_length(head));
-  head = pro_enrich_coords(head);
+  head = opt_enrich_coords(head);
   printf("enrich coords         count: %hd\n", g_slist_length(head));
   return head;
 }

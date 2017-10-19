@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2017  Benjamin Peter <benjaminpeter@arcor.de>
- *
+ * 
  * This file is part of InklingReader
  *
  * This program is free software: you can redistribute it and/or modify
@@ -17,11 +17,11 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef REMOVE_SPIKE_COORDS_H
-#define REMOVE_SPIKE_COORDS_H
+#ifndef OPTIMIZER_H
+#define OPTIMIZER_H
 
 #include <glib.h>
 
-GSList* pro_remove_spike_coords (GSList* data);
+GSList* opt_optimize (GSList* data);
 
-#endif//REMOVE_SPIKE_COORDS_H
+#endif//OPTIMIZER_H

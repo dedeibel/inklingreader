@@ -17,14 +17,11 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "remove-spike-coords.h"
+#ifndef REMOVE_DUPLICATE_COORDS_H
+#define REMOVE_DUPLICATE_COORDS_H
 
-#include "../datatypes/element.h"
-#include "../datatypes/coordinate.h"
-#include "../datatypes/clock.h"
+#include <glib.h>
 
-GSList* pro_remove_spike_coords (GSList* data)
-{
-  GSList* head = data;
-  return head;
-}
+GSList* opt_remove_duplicate_coords (GSList* data);
+
+#endif//REMOVE_DUPLICATE_COORDS_H

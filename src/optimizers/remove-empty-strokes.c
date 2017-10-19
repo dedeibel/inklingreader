@@ -17,13 +17,13 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "enrich-coords.h"
+#include "remove-empty-strokes.h"
 
 #include "../datatypes/element.h"
 #include "../datatypes/coordinate.h"
 #include "../datatypes/clock.h"
 
-GSList* pro_enrich_coords (GSList* data)
+GSList* opt_remove_empty_strokes (GSList* data)
 {
   GSList* head = data;
   return head;

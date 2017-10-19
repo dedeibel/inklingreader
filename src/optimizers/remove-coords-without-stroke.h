@@ -17,11 +17,11 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef REMOVE_DUPLICATE_COORDS_H
-#define REMOVE_DUPLICATE_COORDS_H
+#ifndef REMOVE_COORDS_WITHOUT_STROKE_H
+#define REMOVE_COORDS_WITHOUT_STROKE_H
 
 #include <glib.h>
 
-GSList* pro_remove_duplicate_coords (GSList* data);
+GSList* opt_remove_coords_without_stroke (GSList* data);
 
-#endif//REMOVE_DUPLICATE_COORDS_H
+#endif//REMOVE_COORDS_WITHOUT_STROKE_H

@@ -47,7 +47,7 @@ void delete_entries(GSList** data, GSList** coord_list_entries, unsigned int ins
   *coord_list_entries = NULL;
 }
 
-GSList* pro_remove_coords_without_stroke (GSList* data)
+GSList* opt_remove_coords_without_stroke (GSList* data)
 {
   GSList* it = data;
   GSList* coord_list_entries = NULL;
