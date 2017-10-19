@@ -31,7 +31,7 @@ void delete_entries(GSList** data, GSList** coord_list_entries, unsigned int ins
 
   if (! inside_stroke) { 
     unsigned int removed = 0;
-    GSList* coord_list_it = (*coord_list_entries)->next;
+    GSList* coord_list_it = *coord_list_entries;
     while (coord_list_it != NULL)
     {
       *data = g_slist_delete_link(*data, coord_list_it->data);
