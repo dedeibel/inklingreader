@@ -38,7 +38,10 @@ co_png_export_to_file (const char* filename, const char* svg_data)
   RsvgHandle* handle = rsvg_handle_new_from_data ((unsigned char*)svg_data, 
 						  strlen (svg_data), NULL);
 
-  return co_png_export_to_file_from_handle (filename, handle);
+  int status = co_png_export_to_file_from_handle (filename, handle);
+  rsvg_handle_close(handle, NULL);
+  g_object_unref(handle);
+  return status;
 }
 
 /*----------------------------------------------------------------------------.
