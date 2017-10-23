@@ -51,6 +51,7 @@ void delete_entries(GSList** data, GSList** coord_list_entries, unsigned int ins
 
 GSList* opt_remove_coords_without_stroke (GSList* data)
 {
+  return data; // TODO disable for now to see changes of remove spike coords
   GSList* it = data;
   GSList* coord_list_entries = NULL;
   unsigned char inside_stroke = 0;

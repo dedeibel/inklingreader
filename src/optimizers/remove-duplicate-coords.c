@@ -23,14 +23,14 @@
 #include "../datatypes/element.h"
 #include "../datatypes/coordinate.h"
 
-void remove_list_entries(GSList** data, GSList** coord_list_entries)
+static void remove_list_entries(GSList** data, GSList** coord_list_entries)
 {
   GSList* coord_list_it = (*coord_list_entries);
   while (coord_list_it != NULL)
   {
-      GSList* link_to_be_removed = coord_list_it->data;
-      g_free(link_to_be_removed->data);
-      *data = g_slist_delete_link(*data, link_to_be_removed);
+    GSList* link_to_be_removed = coord_list_it->data;
+    g_free(link_to_be_removed->data);
+    *data = g_slist_delete_link(*data, link_to_be_removed);
     coord_list_it = coord_list_it->next;
   }
 
@@ -38,7 +38,7 @@ void remove_list_entries(GSList** data, GSList** coord_list_entries)
   *coord_list_entries = NULL;
 }
 
-int is_equal_coordinate(dt_coordinate* a, dt_coordinate* b) {
+static int is_equal_coordinate(dt_coordinate* a, dt_coordinate* b) {
   return
     a->x == b->x &&
     a->y == b->y;
